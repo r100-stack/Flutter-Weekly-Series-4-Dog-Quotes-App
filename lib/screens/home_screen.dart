@@ -58,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.brown,
       ),
       body: ListView.builder(
-        cacheExtent: 4000.0,
         itemBuilder: (context, index) {
           return DogCard(
             name: dogs[index].name,
