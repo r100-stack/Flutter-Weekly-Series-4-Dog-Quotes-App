@@ -22,42 +22,40 @@ class DetailsScreen extends StatelessWidget {
                   autoPlay: true,
                   enableInfiniteScroll: false,
                   scrollDirection: Axis.horizontal,
-                  // viewportFraction: .85,
-                  // enlargeCenterPage: true
                 ),
                 items: dog.imageUrls
                     .asMap()
                     .entries
                     .map((entry) => Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            border: Border.all(
-                                color: Theme.of(context).primaryColorDark),
-                            // image: DecorationImage(
-                            //   image: NetworkImage(imageUrl),
-                            // ),
-                          ),
-                          child: Align(
-                            child: Hero(
-                              tag: '${dog.name}_${entry.key}',
-                              child: CachedNetworkImage(
-                                // width: 100.0,
-                                fit: BoxFit.cover,
-                                imageUrl: entry.value,
-                                placeholder: (context, url) => Center(
-                                  child: Container(
-                                    height: 25.0,
-                                    width: 25.0,
-                                    child: CircularProgressIndicator(),
-                                  ),
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(
+                          color: Theme.of(context).primaryColorDark,
+                        ),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Align(
+                          child: Hero(
+                            tag: '${dog.name}_${entry.key}',
+                            child: CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: entry.value,
+                              placeholder: (context, url) => Center(
+                                child: Container(
+                                  height: 25.0,
+                                  width: 25.0,
+                                  child: CircularProgressIndicator(),
                                 ),
-                                errorWidget: (context, url, error) =>
-                                    Icon(Icons.broken_image),
                               ),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.broken_image),
                             ),
                           ),
-                        ))
+                        ),
+                      ),
+                    ))
                     .toList(),
               ),
             ),
