@@ -40,10 +40,6 @@ class DetailsScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20.0),
                             child: Align(
-
-                              // TODO (3): Wrap CachedNetworkImage with Hero
-                              // TODO (4): Hero.tag = '${dog.name}_${entry.key}'
-
                               child: Hero(
                                 tag: '${dog.name}_${entry.key}',
                                 child: CachedNetworkImage(
