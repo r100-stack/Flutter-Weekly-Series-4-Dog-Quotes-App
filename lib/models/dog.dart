@@ -1,7 +1,7 @@
 class Dog {
   String name;
   String quote;
-  String imageUrl;
+  List<String> imageUrls;
 
-  Dog({this.name, this.quote, this.imageUrl});
+  Dog({this.name, this.quote, this.imageUrls});
 }

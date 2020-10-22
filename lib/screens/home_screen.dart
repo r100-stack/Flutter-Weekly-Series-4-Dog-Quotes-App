@@ -31,14 +31,18 @@ class _HomeScreenState extends State<HomeScreen> {
       for (var dogJson in body) {
         print(dogJson['id']);
 
-        String imageApiUrl = 'https://api.thedogapi.com/v1/images/search?breed_id=${dogJson['id']}&include_breeds=false';
+        String imageApiUrl = 'https://api.thedogapi.com/v1/images/search?breed_id=${dogJson['id']}&include_breeds=false&limit=50';
         http.Response imageResponse = await client.get(imageApiUrl);
         var imageBody = jsonDecode(imageResponse.body);
 
-        // print(imageBody);
+        List<String> images = [];
+        for (var imageJson in imageBody) {
+          images.add(imageJson['url']);
+        }
+
         tempDogs.add(Dog(name: dogJson['name'],
           quote: 'When life gives you lemons, make orange juice, cuz... who cares',
-          imageUrl: imageBody[0]['url'],
+          imageUrls: images,
         ));
       }
 
@@ -60,9 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView.builder(
         itemBuilder: (context, index) {
           return DogCard(
-            name: dogs[index].name,
-            quote: 'Yolo, sup... Me rocking wid sum swag',
-            imageUrl: dogs[index].imageUrl,
+            dog: dogs[index],
           );
         },
         itemCount: dogs.length,
