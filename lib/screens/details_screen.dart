@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dog_quotes_4/models/dog.dart';
 import 'package:flutter/material.dart';
@@ -31,10 +32,28 @@ class DetailsScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20.0),
                             border: Border.all(
                                 color: Theme.of(context).primaryColorDark),
-                            image: DecorationImage(
-                              image: NetworkImage(imageUrl),
-                            ),
+                            // image: DecorationImage(
+                            //   image: NetworkImage(imageUrl),
+                            // ),
                           ),
+                  child: Align(
+                    child: Hero(
+                      tag: '${dog.name}',
+                      child: CachedNetworkImage(
+                        // width: 100.0,
+                        fit: BoxFit.cover,
+                        imageUrl: imageUrl,
+                        placeholder: (context, url) => Center(
+                          child: Container(
+                            height: 25.0,
+                            width: 25.0,
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => Icon(Icons.broken_image),
+                      ),
+                    ),
+                  ),
                         ))
                     .toList(),
               ),
