@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        // TODO (1): Add primary color = Colors.brown
+        // TODO (2): Add primary color dark = Colors.brown[700]
+        // TODO (3): Add primary color light = Colors.brown[100]
+        // TODO (4): Add accent color = Colors.lightGreen
       ),
       home: HomeScreen(),
     );
