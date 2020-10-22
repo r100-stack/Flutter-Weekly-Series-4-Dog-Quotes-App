@@ -9,7 +9,6 @@ class DogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO (18): Container.child = Text(dog.name)
     return Container(
       child: Text(dog.name),
     );
