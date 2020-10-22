@@ -40,6 +40,10 @@ class DetailsScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20.0),
                             child: Align(
+
+                              // TODO (3): Wrap CachedNetworkImage with Hero
+                              // TODO (4): Hero.tag = '${dog.name}_${entry.key}'
+
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
                                 imageUrl: entry.value,
@@ -132,87 +136,6 @@ class DetailsScreen extends StatelessWidget {
                       )
                     ],
                   ),
-
-                  // TODO (1): Add a SizedBox of height 40.0
-
-                  // TODO (2): Create a Row for the temperament
-                  // TODO (3): Icon(emoji_emotions_outlined) | SizedBox(width: 10.0) | Text(dog.temperament ?? '-')
-                  // TODO (4): Text.style = 18.0
-                  // TODO (5): Wrap the Text in Expanded
-                  // Row(
-                  //   children: [
-                  //     Icon(Icons.emoji_emotions_outlined),
-                  //     const SizedBox(
-                  //       width: 10.0,
-                  //     ),
-                  //     Expanded(
-                  //       child: Text(
-                  //         dog.temperament ?? '-',
-                  //         style: TextStyle(fontSize: 18.0),
-                  //     ))
-                  //   ],
-                  // ),
-
-                  // TODO (6): Add a SizedBox of height 20.0
-
-                  // TODO (7): Create a Row for the lifespan
-                  // TODO (8): Icon(timelapse_mco) | SizedBox(width: 10.0) | Text(dog.lifespan ?? '-')
-                  // TODO (9): Text.style = 18.0
-                  // TODO (10): Wrap the Text in Expanded
-                  // Row(
-                  //   children: [
-                  //     Icon(FlutterIcons.timelapse_mco),
-                  //     const SizedBox(
-                  //       width: 10.0,
-                  //     ),
-                  //     Expanded(
-                  //       child: Text(
-                  //         dog.lifespan ?? '-',
-                  //         style: TextStyle(fontSize: 18.0),
-                  //     ))
-                  //   ],
-                  // ),
-
-                  // TODO (11): Add a SizedBox of height 20.0
-
-                  // TODO (12): Create a Row for the bredFor
-                  // TODO (13): Icon(clipboard_account_outline_mco) | SizedBox(width: 10.0) | Text(dog.bredFor ?? '-')
-                  // TODO (14): Text.style = 18.0
-                  // TODO (15): Wrap the Text in Expanded
-                  // Row(
-                  //   children: [
-                  //     Icon(FlutterIcons.clipboard_account_outline_mco),
-                  //     const SizedBox(
-                  //       width: 10.0,
-                  //     ),
-                  //     Expanded(
-                  //       child: Text(
-                  //         dog.bredFor ?? '-',
-                  //         style: TextStyle(fontSize: 18.0),
-                  //     ))
-                  //   ],
-                  // ),
-
-                  // TODO (16): Add a SizedBox of height 20.0
-
-                  // TODO (17): Create a Row for the breedGroup
-                  // TODO (18): Icon(dog_mco) | SizedBox(width: 10.0) | Text('${dog.breedGroup}' ?? '-')
-                  // TODO (19): Text.style = 18.0
-                  // TODO (20): Wrap the Text in Expanded
-                  // Row(
-                  //   children: [
-                  //     Icon(FlutterIcons.dog_mco),
-                  //     const SizedBox(
-                  //       width: 10.0,
-                  //     ),
-                  //     Expanded(
-                  //       child: Text(
-                  //         '${dog.breedGroup}' ?? '-',
-                  //         style: TextStyle(fontSize: 18.0),
-                  //     ))
-                  //   ],
-                  // ),
-
                   const SizedBox(
                     height: 40.0,
                   ),
