@@ -21,18 +21,21 @@ class DogCard extends StatelessWidget {
             // TODO (1): Wrap CachedNetworkImage with Hero
             // TODO (2): Hero.tag = '${dog.name}_0'
 
-            leading: CachedNetworkImage(
-              width: 100.0,
-              fit: BoxFit.cover,
-              imageUrl: dog.imageUrls[0],
-              placeholder: (context, url) => Center(
-                child: Container(
-                  height: 25.0,
-                  width: 25.0,
-                  child: CircularProgressIndicator(),
+            leading: Hero(
+              tag: '${dog.name}_0',
+              child: CachedNetworkImage(
+                width: 100.0,
+                fit: BoxFit.cover,
+                imageUrl: dog.imageUrls[0],
+                placeholder: (context, url) => Center(
+                  child: Container(
+                    height: 25.0,
+                    width: 25.0,
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
+                errorWidget: (context, url, error) => Icon(Icons.broken_image),
               ),
-              errorWidget: (context, url, error) => Icon(Icons.broken_image),
             ),
             title: Text(dog.name),
             subtitle: Text(dog.quote),

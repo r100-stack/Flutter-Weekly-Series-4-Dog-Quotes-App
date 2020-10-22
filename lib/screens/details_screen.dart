@@ -44,18 +44,21 @@ class DetailsScreen extends StatelessWidget {
                               // TODO (3): Wrap CachedNetworkImage with Hero
                               // TODO (4): Hero.tag = '${dog.name}_${entry.key}'
 
-                              child: CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl: entry.value,
-                                placeholder: (context, url) => Center(
-                                  child: Container(
-                                    height: 25.0,
-                                    width: 25.0,
-                                    child: CircularProgressIndicator(),
+                              child: Hero(
+                                tag: '${dog.name}_${entry.key}',
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl: entry.value,
+                                  placeholder: (context, url) => Center(
+                                    child: Container(
+                                      height: 25.0,
+                                      width: 25.0,
+                                      child: CircularProgressIndicator(),
+                                    ),
                                   ),
+                                  errorWidget: (context, url, error) =>
+                                      Icon(Icons.broken_image),
                                 ),
-                                errorWidget: (context, url, error) =>
-                                    Icon(Icons.broken_image),
                               ),
                             ),
                           ),
