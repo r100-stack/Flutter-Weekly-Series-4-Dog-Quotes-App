@@ -31,7 +31,8 @@ dependencies:
   http: ^0.12.2
   cached_network_image: ^2.3.3
   carousel_slider: ^2.3.1
-
+  # TODO (10): Depend on the flutter_icons package
+  flutter_icons: ^1.1.0
 
 dev_dependencies:
   flutter_test:
