@@ -32,7 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
       for (var dogJson in body) {
         print(dogJson['id']);
 
-        String imageApiUrl = 'https://api.thedogapi.com/v1/images/search?breed_id=${dogJson['id']}&include_breeds=false&limit=50';
+        String imageApiUrl =
+            'https://api.thedogapi.com/v1/images/search?breed_id=${dogJson['id']}&include_breeds=false&limit=50';
         http.Response imageResponse = await client.get(imageApiUrl);
         var imageBody = jsonDecode(imageResponse.body);
 
@@ -41,7 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
           images.add(imageJson['url']);
         }
 
-        tempDogs.add(Dog(name: dogJson['name'],
+        tempDogs.add(Dog(
+          name: dogJson['name'],
           quote: '"${QuoteUtils.getRandomQuote()}"',
           bredFor: dogJson['bred_for'],
           breedGroup: dogJson['breed_group'],
@@ -69,14 +71,16 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Bark-Bark Quotes'),
         backgroundColor: Colors.brown,
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return DogCard(
-            dog: dogs[index],
-          );
-        },
-        itemCount: dogs.length,
-      ),
+      body: dogs.length != 0
+          ? ListView.builder(
+              itemBuilder: (context, index) {
+                return DogCard(
+                  dog: dogs[index],
+                );
+              },
+              itemCount: dogs.length,
+            )
+          : Center(child: CircularProgressIndicator()),
     );
   }
 }

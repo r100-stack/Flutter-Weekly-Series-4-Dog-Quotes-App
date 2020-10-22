@@ -24,6 +24,7 @@ class DetailsScreen extends StatelessWidget {
                   autoPlay: true,
                   enableInfiniteScroll: false,
                   scrollDirection: Axis.horizontal,
+                  autoPlayInterval: Duration(seconds: 2, milliseconds: 500),
                 ),
                 items: dog.imageUrls
                     .asMap()
