@@ -10,6 +10,10 @@ class DogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // TODO (1): Wrap the Card with a GestureDetector
+    // TODO (2): In the onTap, launch the DetailsScreen
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
