@@ -20,7 +20,7 @@ class DogCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: ListTile(
             leading: Hero(
-              tag: '${dog.name}',
+              tag: '${dog.name}_0',
               child: CachedNetworkImage(
                 width: 100.0,
                 fit: BoxFit.cover,

@@ -26,7 +26,9 @@ class DetailsScreen extends StatelessWidget {
                   // enlargeCenterPage: true
                 ),
                 items: dog.imageUrls
-                    .map((imageUrl) => Container(
+                    .asMap()
+                    .entries
+                    .map((entry) => Container(
                           margin: EdgeInsets.symmetric(horizontal: 5.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.0),
@@ -36,24 +38,25 @@ class DetailsScreen extends StatelessWidget {
                             //   image: NetworkImage(imageUrl),
                             // ),
                           ),
-                  child: Align(
-                    child: Hero(
-                      tag: '${dog.name}',
-                      child: CachedNetworkImage(
-                        // width: 100.0,
-                        fit: BoxFit.cover,
-                        imageUrl: imageUrl,
-                        placeholder: (context, url) => Center(
-                          child: Container(
-                            height: 25.0,
-                            width: 25.0,
-                            child: CircularProgressIndicator(),
+                          child: Align(
+                            child: Hero(
+                              tag: '${dog.name}_${entry.key}',
+                              child: CachedNetworkImage(
+                                // width: 100.0,
+                                fit: BoxFit.cover,
+                                imageUrl: entry.value,
+                                placeholder: (context, url) => Center(
+                                  child: Container(
+                                    height: 25.0,
+                                    width: 25.0,
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                ),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.broken_image),
+                              ),
+                            ),
                           ),
-                        ),
-                        errorWidget: (context, url, error) => Icon(Icons.broken_image),
-                      ),
-                    ),
-                  ),
                         ))
                     .toList(),
               ),
