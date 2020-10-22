@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dog_quotes_4/components/dog_card.dart';
 import 'package:dog_quotes_4/models/dog.dart';
+import 'package:dog_quotes_4/utils/quote_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
 
         tempDogs.add(Dog(name: dogJson['name'],
-          quote: 'When life gives you lemons, make orange juice, cuz... who cares',
+          quote: '"${QuoteUtils.getRandomQuote()}"',
           bredFor: dogJson['bred_for'],
           breedGroup: dogJson['breed_group'],
           lifespan: dogJson['life_span'],

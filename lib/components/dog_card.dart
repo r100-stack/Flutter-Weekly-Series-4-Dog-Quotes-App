@@ -10,8 +10,6 @@ class DogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(dog.imageUrls);
-
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (context) => DetailsScreen(dog: dog,))),
