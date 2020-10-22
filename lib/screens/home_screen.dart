@@ -42,6 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
         tempDogs.add(Dog(name: dogJson['name'],
           quote: 'When life gives you lemons, make orange juice, cuz... who cares',
+          bredFor: dogJson['bred_for'],
+          breedGroup: dogJson['breed_group'],
+          lifespan: dogJson['life_span'],
+          height: dogJson['height']['imperial'],
+          weight: dogJson['weight']['imperial'],
+          origin: dogJson['origin'],
+          temperament: dogJson['temperament'],
           imageUrls: images,
         ));
       }
