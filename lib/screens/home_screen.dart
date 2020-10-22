@@ -14,7 +14,21 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Bark-Bark Quotes'),
       ),
-      body: Container(),
+
+      // TODO (5): Change Container to ListView.Builder
+      // TODO (6): ListView.itemBuilder = (context, index) {}
+      // TODO (7): Within the itemBuilder method, return a DogCard()
+      // TODO (8): DogCard.dog = dogs[index]
+      // TODO (9): ListView.itemCount = dogs.length
+
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return DogCard(
+            dog: dogs[index],
+          );
+        },
+        itemCount: dogs.length,
+      ),
     );
   }
 }
