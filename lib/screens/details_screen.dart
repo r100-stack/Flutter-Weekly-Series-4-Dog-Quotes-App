@@ -187,7 +187,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       Expanded(
                           child: Text(
-                        dog.breedGroup ?? '-',
+                        dog.breedGroup != null ? '${dog.breedGroup} dog' : '-',
                         style: TextStyle(fontSize: 18.0),
                       ))
                     ],
